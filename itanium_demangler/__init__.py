@@ -886,7 +886,7 @@ def parse(raw):
 
 def is_ctor_or_dtor(ast) -> bool:
     if ast.kind == 'func':
-        return _is_ctor_or_dtor(ast.name)
+        return is_ctor_or_dtor(ast.name)
     elif ast.kind == 'qual_name':
         kind = ast.value[-1].kind
         return kind == 'ctor' or kind == 'dtor'
